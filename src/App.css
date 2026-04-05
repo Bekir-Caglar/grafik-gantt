@@ -1,0 +1,483 @@
+/* Sidebar and Edit Mode Styles */
+.edit-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #123321;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(18, 51, 33, 0.4);
+  transition: all 0.2s;
+  z-index: 999;
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+  background: #2cd071;
+}
+
+.edit-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 420px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #123321;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2cd071;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2cd071;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.row {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row>.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.form-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fdfdfd;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: #2cd071;
+  box-shadow: 0 0 0 3px rgba(44, 208, 113, 0.15);
+  outline: none;
+}
+
+.color-picker {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+.card-container {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.card-container:hover {
+  border-color: #c1ecd2;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.task-id {
+  background: #2cd071;
+  color: white;
+  min-width: 24px; /* Changed from width to ensure no shrink */
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.small-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  color: #123321;
+}
+
+.small-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+  border-color: #ccc;
+}
+
+.small-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #d9363e;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 12px;
+  background: #123321;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 5px;
+}
+
+.action-btn:hover {
+  background: #2cd071;
+}
+
+.action-btn.outline {
+  background: transparent;
+  color: #123321;
+  border: 2px solid #123321;
+}
+
+.action-btn.outline:hover {
+  background: #123321;
+  color: white;
+}
+
+.month-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-toggle:hover {
+  border-color: #2cd071;
+  background: rgba(44, 208, 113, 0.05);
+}
+
+.month-toggle.active {
+  background: #2cd071;
+  border-color: #2cd071;
+  color: white;
+  box-shadow: 0 2px 6px rgba(44, 208, 113, 0.3);
+}
+
+.grid-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.grid-cell-wrapper {
+  display: flex;
+  width: 40px;
+  height: 24px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.grid-half-cell {
+  flex: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.grid-half-cell:hover {
+  background: rgba(44, 208, 113, 0.1);
+}
+
+.grid-half-cell.active {
+  background: #2cd071;
+}
+
+.grid-half-cell.left {
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.cell-label {
+  position: absolute;
+  top: -12px;
+  right: -5px;
+  font-size: 0.6rem;
+  color: #999;
+  pointer-events: none;
+}
+
+/* Original styles appending to existing ones */
+.main-container {
+  display: flex;
+  background-color: #f6f8fb;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', sans-serif;
+  transition: filter 0.3s;
+}
+
+.main-container.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.sidebar-curve {
+  width: 32px;
+  background-color: #2cd071;
+  clip-path: ellipse(150% 100% at 0% 50%);
+  flex-shrink: 0;
+}
+
+.content-area {
+  flex-grow: 1;
+  padding: 40px 60px 60px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+  color: #123321;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
+  font-family: 'Oswald', 'Anton', 'Impact', sans-serif;
+  transform: scaleY(1.2);
+}
+
+.gantt-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gantt-header {
+  display: flex;
+  border-bottom: 1px solid rgba(18, 51, 33, 0.8);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #123321;
+}
+
+.task-column-header {
+  width: 300px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.timeline-headers {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+}
+
+.week-header {
+  flex: none;
+  text-align: center; /* Centered above the column */
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0; /* Remove padding to ensure true center */
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(18, 51, 33, 0.8);
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.gantt-row:hover {
+  background-color: rgba(44, 208, 113, 0.05);
+}
+
+.task-name {
+  width: 300px;
+  padding: 16px 20px 16px 0;
+  font-size: 1rem;
+  color: #44544a;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.timeline-track {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.15); /* Darker and more visible */
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+.gantt-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px; /* Thicker bars */
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gantt-bar:hover {
+  transform: translateY(-50%) scaleY(1.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gantt-body>.gantt-row {
+  animation: slideIn 0.5s ease backwards;
+}
